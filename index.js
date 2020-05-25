@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 
 client.once(`ready`, () => {
-    console.log(`Ready!`);
+    console.log(`Welcome Back Mastew Istewix and Gawwison, I Hope You Had A Gweat Day and Fixed Me :3`);
 
 });
 
