@@ -141,3 +141,23 @@ client.on('message', message => {
 
 // Log the bot in using the token from https://discordapp.com/developers/applications/me
 client.login('your token here');
+
+
+
+//osu! commands and API is down below
+function Fetching(type, user) {
+    url = "https://osu.ppy.sh/api/" + type + "?u=" + user + "&k=" + "CENSORED"
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            console.log(json)
+        })
+        .catch(error => console.log(error))
+
+}
+client.on('message', message => {
+    if (message.content.startsWith("!recent")) {
+        //user is myself, - uwu -/ -_uwu_-
+        data = Fetching("get_user_recent", "15552380")
+    }
+})
