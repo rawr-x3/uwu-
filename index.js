@@ -145,19 +145,19 @@ client.login('your token here');
 
 
 //osu! commands and API is down below
-function Fetching(type, user) {
-    url = "https://osu.ppy.sh/api/" + type + "?u=" + user + "&k=" + "CENSORED"
-    fetch(url)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json)
-        })
-        .catch(error => console.log(error))
+async function Fetching(type, user) {
+    url = "https://osu.ppy.sh/api/" + type + "?u=" + user + "&k=" + "my API key >:c"
+    response = await fetch(url)
+    json = await response.json()
+    return json
 
+}
+async function recent(message) {
+    data = await Fetching("get_user_recent", "15552380")
+    console.log(data[0])
 }
 client.on('message', message => {
     if (message.content.startsWith("!recent")) {
-        //user is myself, - uwu -/ -_uwu_-
-        data = Fetching("get_user_recent", "15552380")
+        recent(message)
     }
 })
