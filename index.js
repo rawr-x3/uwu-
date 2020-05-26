@@ -154,7 +154,8 @@ async function Fetching(type, user) {
 }
 async function recent(message) {
     data = await Fetching("get_user_recent", "15552380")
-    console.log(data[0])
+    message.channel.send("> " + String(data[0].date) + "\n" + "> " + String(data[0].rank) + "\n" + "> " + String(data[0].maxcombo) + "\n" + "> " + String(data[0].score) + "\n" + "> " + String(data[0].count50) + "\n" + "> " + String(data[0].count100) + "\n" + "> " + String(data[0].count300))
+
 }
 client.on('message', message => {
     if (message.content.startsWith("!recent")) {
