@@ -39,7 +39,7 @@ client.on(`message`, message => {
         message.channel.send(`owo whats this`);
     }
 
-    if (message.content.includes("uwu")) {
+    if (message.content.includes("uwu") && message.content !== "uwu") {
         //send back "uwu whats this" to the channel the message was sent in
         message.channel.send(`uwu whats this`);
     }
