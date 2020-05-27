@@ -206,7 +206,7 @@ async function recent(message) {
     const embed = new Discord.MessageEmbed()
         .setTitle(beatmap[0].artist + " - " + beatmap[0].title)
         .setColor(0xff0000)
-        .setDescription(data[0].date)
+        .setDescription(data[0].date + " **UTC/EST+4**" + "\n" + "**Difficulty:** " + beatmap[0].version + "\n" + "**Rank:** " + data[0].rank + "\n" + "**Combo:** " + data[0].maxcombo + "/" + beatmap[0].max_combo)
         .setThumbnail('https://b.ppy.sh/thumb/' + beatmap[0].beatmapset_id + 'l.jpg')
         .setURL('https://osu.ppy.sh/beatmaps/' + beatmap[0].beatmap_id)
     message.channel.send(embed)
