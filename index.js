@@ -136,7 +136,7 @@ client.on('message', message => {
     }
 });
 // Log bot in using the token from https://discordapp.com/developers/applications/me
-client.login('NzE0MjQ5NDQwMTA5NTI3MDcx.XsuwDQ.nJeuGc5PJ7BCHsfweQZAnCcbwpY');
+client.login('nope fuck you');
 
 client.on('message', message => {
     // Ignore messages that aren't from a guild
