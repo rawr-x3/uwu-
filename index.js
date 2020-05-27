@@ -145,16 +145,25 @@ client.login('your token here');
 
 
 //osu! commands and API is down below
-async function Fetching(type, user) {
-    url = "https://osu.ppy.sh/api/" + type + "?u=" + user + "&k=" + "my API key >:c"
+async function fetching(type, user) {
+    url = "https://osu.ppy.sh/api/" + type + user + "&k=" + "No bitch"
+    console.log(url)
     response = await fetch(url)
     json = await response.json()
     return json
 
 }
 async function recent(message) {
-    data = await Fetching("get_user_recent", "15552380")
-    message.channel.send("> " + String(data[0].date) + "\n" + "> " + String(data[0].rank) + "\n" + "> " + String(data[0].maxcombo) + "\n" + "> " + String(data[0].score) + "\n" + "> " + String(data[0].count50) + "\n" + "> " + String(data[0].count100) + "\n" + "> " + String(data[0].count300))
+    data = await fetching("get_user_recent?u=", "15552380")
+    beatmap = await fetching('get_beatmaps?b=', data[0].beatmap_id)
+    console.log(beatmap)
+    const embed = new Discord.MessageEmbed()
+        .setTitle(beatmap[0].artist + " - " + beatmap[0].title)
+        .setColor(0xff0000)
+        .setDescription(data[0].date)
+        .setThumbnail('https://b.ppy.sh/thumb/' + beatmap[0].beatmapset_id + 'l.jpg')
+        .setURL('https://osu.ppy.sh/beatmaps/' + beatmap[0].beatmap_id)
+    message.channel.send(embed)
 
 }
 client.on('message', message => {
